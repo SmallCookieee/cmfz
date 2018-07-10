@@ -49,14 +49,14 @@ public class ShufflingController {
 
     @RequestMapping("/updatePic")
     @ResponseBody
-    public Shuffling updatePic(String pid,String path, String status, String description){
+    public Shuffling updatePic(String id,String path, String status, String description){
         Shuffling shuffling = new Shuffling();
-        shuffling.setId(pid);
+        shuffling.setId(id);
         shuffling.setPath(path);
         shuffling.setDescription(description);
         shuffling.setDate(new Date());
         shuffling.setStatus(status);
-        int result = ss.addPic(shuffling);
+        int result = ss.modifyPic(shuffling);
         if(result>0){
             return shuffling;
         }else{

@@ -30,7 +30,7 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
-    public int addLog(Log log) {
+    public int insertLog(Log log) {
         return ld.insertLog(log);
     }
 }

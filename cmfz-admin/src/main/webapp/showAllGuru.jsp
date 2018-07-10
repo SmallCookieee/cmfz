@@ -64,16 +64,16 @@
         });
         $("#updateGuru").linkbutton({
             onClick:function () {
-
-                var row = $("#showAllGuru").datagrid("getSelected");
-
+                var rowDate = $("#showAllGuru").datagrid("getSelected");
                 $("#guru").dialog({
                     title:"修改上师信息",
                     width:500,
                     height:180,
                     href:"${pageContext.request.contextPath}/updateGuru.jsp",
                     onLoad:function () {
-                        $("#updateGuru").form("load",row);
+                        alert(rowDate.guruName);
+                        console.log(rowDate);
+                        $("#updateGuru").form("load",rowDate);
                     },
                     buttons:[{
                         text:"保存",

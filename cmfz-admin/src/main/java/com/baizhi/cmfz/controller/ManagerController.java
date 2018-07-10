@@ -32,6 +32,7 @@ public class ManagerController {
         if(code.equalsIgnoreCase(enCode)){
             Manager manager = ms.login(name,password);
             if(manager!=null){
+                session.setAttribute("manager",manager);
                 if(rememberName){
                     Cookie cookie = new Cookie("name",name);
                     cookie.setPath("/cmfz-admin");

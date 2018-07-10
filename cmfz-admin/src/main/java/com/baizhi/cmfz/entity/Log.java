@@ -1,5 +1,7 @@
 package com.baizhi.cmfz.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,6 +11,7 @@ import java.util.Date;
 public class Log implements Serializable{
     private String logId;
     private String logUser;
+    @JSONField(format = "yyyy-MM-dd ,HH:mm:ss")
     private Date logTime;
     private String logResource;
     private String logAction;

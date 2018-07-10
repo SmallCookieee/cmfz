@@ -1,5 +1,7 @@
 package com.baizhi.cmfz.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,6 +12,7 @@ public class Article implements Serializable{
     private String articleId;
     private String articleName;
     private String introduction;
+    @JSONField(format = "yyyy-MM-dd ,HH:mm:ss")
     private Date articleDate;
     private String articleSrc;
     private String articleAuthor;

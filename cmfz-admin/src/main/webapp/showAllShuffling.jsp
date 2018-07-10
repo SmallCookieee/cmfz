@@ -75,7 +75,7 @@
                 $("#dd").dialog({
                     title:"修改图片信息",
                     width:500,
-                    height:160,
+                    height:180,
                     href:"${pageContext.request.contextPath}/updatePic.jsp",
                     onLoad:function(){
                         $("#updatePic").form("load",rowData);

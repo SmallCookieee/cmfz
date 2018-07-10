@@ -67,19 +67,19 @@
     <table>
         <tr>
             <td>文章标题:</td>
-            <td>
+            <td style="text-align: left">
                 <input name="articleName" class="easyui-textbox"/>
             </td>
         </tr>
         <tr>
             <td>文章作者:</td>
-            <td>
+            <td style="text-align: left">
                 <input id="articleAuthor" name="articleAuthor"/>
             </td>
         </tr>
         <tr>
             <td>文章状态:</td>
-            <td>
+            <td style="text-align: left">
                 <input id="articleStatus" name="articleStatus" />
             </td>
         </tr>

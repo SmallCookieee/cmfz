@@ -10,6 +10,12 @@
 <form id="updatePic" method="post" enctype="multipart/form-data">
     <table>
         <tr>
+            <td>轮播图ID:</td>
+            <td>
+                <input id="pic" name="id" class="easyui-textbox" data-options="width:251" readonly/>
+            </td>
+        </tr>
+        <tr>
             <td>轮播图描述:</td>
             <td>
                 <input id="des" name="description" class="easyui-textbox" data-options="width:251"/>
