@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.dao.PermissionDao">
+    <resultMap id="permissionMap" type="Permission">
+        <id property="permissionId" column="permission_id"></id>
+        <result property="resourceName" column="resource_name"></result>
+        <result property="resourceTag" column="resource_tag"></result>
+        <result property="resourcePath" column="resource_path"></result>
+        <result property="permissionTag" column="permission_tag"></result>
+    </resultMap>
+
+    <select id="selectPermissionByManagerName" resultMap="permissionMap">
+        select *
+        from t_permission
+        where permission_id
+        in(select permission_id
+            from t_role_permission
+            where role_id
+            in(select role_id
+                from t_manager_role
+                where manager_id =(select id from t_manager where name = #{managerName})))
+    </select>
+
+</mapper>

@@ -8,8 +8,8 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     
 	<link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css" type="text/css"></link>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" type="text/css"></link>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css" type="text/css"/>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css" type="text/css"/>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/script/jquery.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/script/common.js"></script>
 	<script type="text/javascript">
@@ -17,7 +17,7 @@
 		$(function(){
 			//点击更换验证码：
 			$("#captchaImage").click(function(){//点击更换验证码
-                $("#captchaImage").attr("src","${pageContext.request.contextPath}/manager/image?flag="+Math.random())
+                $("#captchaImage").prop("src","${pageContext.request.contextPath}/manager/image?flag="+Math.random())
 			});
 			
 			//  form 表单提交
@@ -69,6 +69,9 @@
 						<td>
 							<label>
 								<input type="checkbox" id="isRememberUsername" name="rememberName" value="true"/> 记住用户名
+							</label>
+							<label>
+								<input type="checkbox" id="isRememberMe" name="rememberMe" value="true"/> 七天免登陆
 							</label>
 						</td>
 					</tr>

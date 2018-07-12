@@ -32,5 +32,53 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"></property>
+        <property name="loginUrl" value="/login.jsp"></property>
+        <property name="unauthorizedUrl" value="error.jsp"></property>
+        <property name="filterChainDefinitions">
+            <value>
+                /manager/login=anon
+                /manager/image=anon
+                /img/**=anon
+                /themes/**=anon
+                /css/**=anon
+                /js/**=anon
+                /script/**=anon
+                /login.jsp=anon
+                /**=user
+            </value>
+        </property>
+    </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realms">
+            <list>
+                <ref bean="myRealm"></ref>
+            </list>
+        </property>
+        <property name="rememberMeManager" ref="rememberMeManager"></property>
+    </bean>
+
+    <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie" ref="simpleCookie"></property>
+    </bean>
+
+    <bean id="simpleCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <property name="name" value="rm"></property>
+        <property name="maxAge" value="604800"></property>
+        <property name="path" value="/"></property>
+    </bean>
+
+    <bean id="myRealm" class="com.baizhi.cmfz.util.MyRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"></property>
+    </bean>
+
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"></property>
+        <property name="hashIterations" value="1024"></property>
+    </bean>
+
     <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
 </beans>
